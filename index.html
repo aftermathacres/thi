@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THI - Technical Innovations | Enterprise Audio & IT Solutions</title>
+    <meta name="description" content="Licensed commercial audio, video, and IT integration specialists serving Humboldt County. Expert installations for casinos, sports venues, conference rooms, and enterprise facilities.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background: #1a1a1a; color: #e8e8e8; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+        .section-dark { background: #111; }
+        .text-accent { color: #ef4444; }
+        .bg-accent { background: #ef4444; }
+        .bg-accent:hover { background: #dc2626; }
+        .card { background: #2a2a2a; transition: transform 0.3s; }
+        .card:hover { transform: translateY(-4px); }
+        nav.scrolled { background: rgba(26, 26, 26, 0.95); backdrop-filter: blur(10px); }
+        .hero-img { object-fit: cover; height: 100%; width: 100%; }
+        .hero-img-container { 
+            border: 1px solid #333; 
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .portfolio-card {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            min-height: 200px;
+        }
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.85), rgba(17, 17, 17, 0.95));
+            border-radius: 0.5rem;
+        }
+        .portfolio-card-content {
+            position: relative;
+            z-index: 1;
+        }
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="nav" class="fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold">
+                    <span class="text-accent">THI</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="hover:text-accent transition">Services</a>
+                    <a href="#portfolio" class="hover:text-accent transition">Portfolio</a>
+                    <a href="#about" class="hover:text-accent transition">About</a>
+                    <a href="#contact" class="hover:text-accent transition">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-3">
+                <a href="#services" class="block hover:text-accent transition">Services</a>
+                <a href="#portfolio" class="block hover:text-accent transition">Portfolio</a>
+                <a href="#about" class="block hover:text-accent transition">About</a>
+                <a href="#contact" class="block hover:text-accent transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Half-page Hero -->
+    <section class="min-h-screen flex items-center px-6 pt-20">
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left: Image -->
+                <div class="order-2 md:order-1">
+                    <div class="hero-img-container rounded-lg overflow-hidden">
+                        <img src="https://thumbs.dreamstime.com/b/server-rack-red-cables-ai-generated-image-rows-network-connected-to-data-center-380135572.jpg" 
+                             alt="Professional server rack installation" 
+                             class="hero-img">
+                    </div>
+                </div>
+                
+                <!-- Right: Content -->
+                <div class="order-1 md:order-2">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                        <span class="text-accent">THI</span>
+                    </h1>
+                    <p class="text-3xl md:text-4xl font-light mb-4">Technical Innovations</p>
+                    <p class="text-xl text-gray-400 mb-8">Enterprise Audio & IT Integration</p>
+                    
+                    <div class="space-y-3 text-gray-300 mb-10">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>Licensed California Contractor #914611</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>30+ Years Experience</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-accent font-bold">✓</span>
+                            <span>Serving Humboldt County & Northern California</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#portfolio" class="inline-block bg-accent px-8 py-4 text-lg font-semibold rounded hover:bg-red-600 transition text-center">
+                            View Portfolio
+                        </a>
+                        <a href="#contact" class="inline-block border-2 border-accent text-accent px-8 py-4 text-lg font-semibold rounded hover:bg-accent hover:text-white transition text-center">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section-dark py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Services</h2>
+            <div class="h-1 w-20 bg-accent mb-12"></div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card p-8 rounded-lg">
+                    <svg class="service-icon" fill="none" stroke="#ef4444" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                    </svg>
+                    <h3 class="text-2xl font-bold mb-4 text-accent">Pro Audio Systems</h3>
+                    <p class="text-gray-400">Conference rooms, sporting venues, casinos. Pristine clarity, zero feedback. Bose Pro and industry-leading equipment.</p>
+                </div>
+                
+                <div class="card p-8 rounded-lg">
+                    <svg class="service-icon" fill="none" stroke="#ef4444" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <h3 class="text-2xl font-bold mb-4 text-accent">AV Integration</h3>
+                    <p class="text-gray-400">Multi-media projectors, screens, custom installations. Complex setups with exceptional technical skill.</p>
+                </div>
+                
+                <div class="card p-8 rounded-lg">
+                    <svg class="service-icon" fill="none" stroke="#ef4444" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
+                    </svg>
+                    <h3 class="text-2xl font-bold mb-4 text-accent">IT & Networking</h3>
+                    <p class="text-gray-400">Fiber, switching, networking infrastructure. Continuing support contracts for enterprise IT needs.</p>
+                </div>
+                
+                <div class="card p-8 rounded-lg">
+                    <svg class="service-icon" fill="none" stroke="#ef4444" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <h3 class="text-2xl font-bold mb-4 text-accent">System Design</h3>
+                    <p class="text-gray-400">Custom solutions tailored to your organization. New construction or system upgrades.</p>
+                </div>
+                
+                <div class="card p-8 rounded-lg">
+                    <svg class="service-icon" fill="none" stroke="#ef4444" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    <h3 class="text-2xl font-bold mb-4 text-accent">Ongoing Support</h3>
+                    <p class="text-gray-400">Service contracts and maintenance. We're here after installation to keep systems running smoothly.</p>
+                </div>
+                
+                <div class="card p-8 rounded-lg">
+                    <svg class="service-icon" fill="none" stroke="#ef4444" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+                    </svg>
+                    <h3 class="text-2xl font-bold mb-4 text-accent">Acoustical Treatment</h3>
+                    <p class="text-gray-400">Professional acoustics for optimal sound quality in any environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Portfolio</h2>
+            <div class="h-1 w-20 bg-accent mb-12"></div>
+            
+            <p class="text-xl text-gray-400 mb-12">Trusted by leading organizations across Northern California</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="portfolio-card card rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1596524430615-b46475ddff6e?w=800');">
+                    <div class="portfolio-card-content p-6">
+                        <h3 class="text-xl font-bold mb-2">Bear River Casino Resort</h3>
+                        <p class="text-gray-400">Full facility audio integration</p>
+                    </div>
+                </div>
+                <div class="portfolio-card card rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=800');">
+                    <div class="portfolio-card-content p-6">
+                        <h3 class="text-xl font-bold mb-2">Redwood Casino Klamath</h3>
+                        <p class="text-gray-400">Gaming floor sound system</p>
+                    </div>
+                </div>
+                <div class="portfolio-card card rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800');">
+                    <div class="portfolio-card-content p-6">
+                        <h3 class="text-xl font-bold mb-2">Cher'ae Heights Casino</h3>
+                        <p class="text-gray-400">Conference & event spaces</p>
+                    </div>
+                </div>
+                <div class="portfolio-card card rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?w=800');">
+                    <div class="portfolio-card-content p-6">
+                        <h3 class="text-xl font-bold mb-2">South Fork High Gymnasium</h3>
+                        <p class="text-gray-400">Sports venue audio system</p>
+                    </div>
+                </div>
+                <div class="portfolio-card card rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800');">
+                    <div class="portfolio-card-content p-6">
+                        <h3 class="text-xl font-bold mb-2">United Indian Health Services</h3>
+                        <p class="text-gray-400">Medical facility integration</p>
+                    </div>
+                </div>
+                <div class="portfolio-card card rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800');">
+                    <div class="portfolio-card-content p-6">
+                        <h3 class="text-xl font-bold mb-2">Tish Non Community Center</h3>
+                        <p class="text-gray-400">Community space AV setup</p>
+                    </div>
+                </div>
+                <div class="portfolio-card card rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800');">
+                    <div class="portfolio-card-content p-6">
+                        <h3 class="text-xl font-bold mb-2">River Lodge Fortuna</h3>
+                        <p class="text-gray-400">Hospitality audio systems</p>
+                    </div>
+                </div>
+                <div class="portfolio-card card rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800');">
+                    <div class="portfolio-card-content p-6">
+                        <h3 class="text-xl font-bold mb-2">Health Sport</h3>
+                        <p class="text-gray-400">Fitness facility sound</p>
+                    </div>
+                </div>
+                <div class="portfolio-card card rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800');">
+                    <div class="portfolio-card-content p-6">
+                        <h3 class="text-xl font-bold mb-2">Humboldt Medical Foundation</h3>
+                        <p class="text-gray-400">Healthcare IT & AV</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section-dark py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">About</h2>
+            <div class="h-1 w-20 bg-accent mb-12"></div>
+            
+            <div class="space-y-6 text-lg text-gray-300 leading-relaxed">
+                <p>
+                    <strong class="text-white">THI</strong> (Technical Innovations, formerly TecHome Innovations) is a licensed, bonded, and insured California contractor specializing in commercial audio, video, and IT integration.
+                </p>
+                <p>
+                    Since 1991, we've evolved from custom installations to becoming the trusted partner for enterprise facilities across Northern California. Our focus is simple: complex installations executed with exceptional technical skill and a smooth, professional approach.
+                </p>
+                <p>
+                    Led by founder <strong class="text-white">Ivan Brownell</strong>, our team brings decades of experience in pro audio, AV integration, and IT infrastructure. We design custom solutions that fit your needs—whether it's a conference room upgrade or a complete facility buildout.
+                </p>
+                <p class="text-gray-500 text-base pt-6">
+                    Licensed California Contractor #914611
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Let's Talk</h2>
+            <div class="h-1 w-20 bg-accent mb-12 mx-auto"></div>
+            
+            <p class="text-xl text-gray-400 mb-12">
+                Ready to discuss your project? Reach out to start the conversation.
+            </p>
+            
+            <a href="mailto:ivan@techomeinnovations.com" class="inline-block bg-accent px-10 py-5 text-xl font-semibold rounded hover:bg-red-600 transition">
+                ivan@techomeinnovations.com
+            </a>
+            
+            <p class="text-gray-500 mt-8">
+                Serving Humboldt County and Northern California
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section-dark py-8 px-6 text-center text-gray-500">
+        <p>&copy; 2025 THI - Technical Innovations. Licensed California Contractor #914611</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Nav scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

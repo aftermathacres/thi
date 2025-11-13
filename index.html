@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+    /* Hide navbar logo by default, but keep space */
+    .navbar-logo-hidden { visibility: hidden !important; }
         html { scroll-behavior: smooth; }
         body { background: #222; color: #e8e8e8; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
         .section-dark { background: #111; }
@@ -20,9 +22,6 @@
         .card:hover { transform: translateY(-4px); }
         nav.scrolled { background: #222; backdrop-filter: blur(10px); }
         .hero-img { object-fit: cover; height: 100%; width: 100%; }
-        .hero-img-container {
-            /* border and shadow removed for seamless blend */
-        }
         .portfolio-card {
             background-size: cover;
             background-position: center;
@@ -55,22 +54,24 @@
     <nav id="nav" class="fixed w-full z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold">
+                <div class="text-2xl font-bold navbar-logo flex-shrink-0">
                     <span class="inline-block align-middle">
                         <img src="images/logo_on_black_no_words.png" alt="THI Logo" style="height: 32px; width: auto; display: inline-block; vertical-align: middle;" />
                     </span>
                 </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#services" class="hover:text-accent transition">Services</a>
-                    <a href="#portfolio" class="hover:text-accent transition">Portfolio</a>
-                    <a href="#about" class="hover:text-accent transition">About</a>
-                    <a href="#contact" class="hover:text-accent transition">Contact</a>
+                <div class="flex-1 flex justify-end items-center">
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#services" class="hover:text-accent transition">Services</a>
+                        <a href="#portfolio" class="hover:text-accent transition">Portfolio</a>
+                        <a href="#about" class="hover:text-accent transition">About</a>
+                        <a href="#contact" class="hover:text-accent transition">Contact</a>
+                    </div>
+                    <button id="mobile-menu-btn" class="md:hidden ml-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
                 </div>
-                <button id="mobile-menu-btn" class="md:hidden">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
             </div>
             <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-3">
                 <a href="#services" class="block hover:text-accent transition">Services</a>
@@ -86,7 +87,7 @@
         <div class="max-w-7xl mx-auto w-full">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <!-- Left: Image -->
-                <div class="order-2 md:order-1">
+                <div class="order-1 md:order-1">
                     <div class="hero-img-container rounded-lg overflow-hidden">
                         <img src="images/logo_on_black.png"
                              alt="Professional server rack installation"
@@ -95,7 +96,7 @@
                 </div>
 
                 <!-- Right: Content -->
-                <div class="order-1 md:order-2">
+                <div class="order-2 md:order-2">
                     <h1 class="text-5xl md:text-7xl font-bold mb-6">
                         <span class="text-accent">THI</span>
                     </h1>
@@ -267,6 +268,9 @@
                     <strong class="text-white">THI</strong> (Technical Innovations, formerly TecHome Innovations) is a licensed, bonded, and insured California contractor specializing in commercial audio, video, and IT integration.
                 </p>
                 <p>
+                    <span class="font-semibold text-accent">Registered Veteran Owned Business.</span> Proudly supporting our community and fellow veterans through service and leadership.
+                </p>
+                <p>
                     Since 1991, we've evolved from custom installations to becoming the trusted partner for enterprise facilities across Northern California. Our focus is simple: complex installations executed with exceptional technical skill and a smooth, professional approach.
                 </p>
                 <p>
@@ -301,7 +305,7 @@
 
     <!-- Footer -->
     <footer class="section-dark py-8 px-6 text-center text-gray-500">
-        <p>&copy; 2025 THI - Technical Innovations. Licensed California Contractor #914611</p>
+    <p>&copy; 2025 THI - Technical Innovations. Licensed California Contractor #914611. Registered Veteran Owned Business.</p>
     </footer>
 
     <script>
@@ -328,6 +332,21 @@
                 nav.classList.remove('scrolled');
             }
         });
+
+        // KISS: Hide navbar logo when hero is in view
+        const navbarLogo = document.querySelector('.navbar-logo');
+        const heroSection = document.querySelector('.hero-img-container');
+        function toggleNavbarLogo() {
+            const rect = heroSection.getBoundingClientRect();
+            if (rect.bottom > 60) {
+                navbarLogo.classList.add('navbar-logo-hidden');
+            } else {
+                navbarLogo.classList.remove('navbar-logo-hidden');
+            }
+        }
+        window.addEventListener('scroll', toggleNavbarLogo);
+        window.addEventListener('resize', toggleNavbarLogo);
+        document.addEventListener('DOMContentLoaded', toggleNavbarLogo);
     </script>
 </body>
 </html>
